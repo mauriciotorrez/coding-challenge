@@ -76,7 +76,7 @@ Can you optimize the code so you get the following output?
 
 ### Bye by Lorem Ipsum
 
-If a user wnats ti add a new word to the list, they have to click on the plus button and the edit the value that is added by default. This isn't very user friendly.
+If a user wants to add a new word to the list, they have to click on the plus button and the edit the value that is added by default. This isn't very user friendly.
 <br>
 <br>
 
