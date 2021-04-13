@@ -76,10 +76,10 @@ Can you optimize the code so you get the following output?
 
 ### Bye by Lorem Ipsum
 
-If a user wants to add a new word to the list, they have to click on the plus button and the edit the value that is added by default. This isn't very user friendly.
+If a user wants to add a new word to the list, they have to click the 'Add row' button and then edit the value that is added by default. This isn't very user friendly.
 <br>
 <br>
 
-1. Usign react-navigation add a stack navigator
-2. When the user taps the plus button, they should be taken to a separate screen where they add a new word instead of adding one from the dictionary
+1. Usign react-navigation, add a stack navigator
+2. When the user taps the 'Add row' button, they should be taken to a separate screen where they add a new word instead of adding one from the dictionary
 3. Navigating to the main list should display the new word added. The edit functionality should remain in place
