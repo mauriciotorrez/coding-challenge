@@ -7,12 +7,15 @@ export default (state = initialState, action) => {
     case ADD_ITEM:
       return [...state, action.payload];
     case UPDATE_ITEM: {
-      const index = action.payload.index;
-      if (state[index]) {
-        state[index] = action.payload;
-        return state;
-      }
-      return state;
+      return state.map((item, index) => {
+          if(item.index === action.payload.index) {
+            return {
+              ...item,  
+              value: action.payload.value,  
+            }
+          }
+          return item;
+        });
     }
     default:
       return state;
