@@ -33,6 +33,7 @@ class MyReduxList extends React.PureComponent {
     console.log('Render MyReduxList');
     const nextIndex = this.props.listData.length;
     const data=this.props.listData;
+    const { navigate } = this.props.navigation;
     return (
       <SafeAreaView style={{flex: 1, backgroundColor: 'white'}}>
         <FlatList
@@ -43,14 +44,11 @@ class MyReduxList extends React.PureComponent {
         />
         <Button
           title="Add row"
-          onPress={() => {
-            this.props.addItem({
+          onPress={() =>  navigate('AddItem',{
               index: nextIndex,
-              value: dictionary[nextIndex],
-              key: nextIndex,
-              displayMode: 0,
-            });
-          }}
+              currentProps: this.props
+          })         
+          }
         />
       </SafeAreaView>
     );
