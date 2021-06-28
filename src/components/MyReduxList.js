@@ -17,20 +17,29 @@ const lorem =
 
 const dictionary = lorem.split(' ');
 
-class MyReduxList extends Component {
-  render() {
-    console.log('Render MyReduxList');
-    const nextIndex = this.props.listData.length;
-    return (
-      <SafeAreaView style={{flex: 1, backgroundColor: 'white'}}>
-        <FlatList
-          data={this.props.listData}
-          renderItem={({item}) => (
+class MyReduxList extends React.PureComponent {
+
+  keyExtractor = (item) => item.index.toString();
+
+      renderItem = ({ item }) => (
             <ListItem
+              key={item.index}
               item={item}
               onChangeText={item => this.props.updateItem(item)}
             />
-          )}
+          );
+
+  render() {
+    console.log('Render MyReduxList');
+    const nextIndex = this.props.listData.length;
+    const data=this.props.listData;
+    return (
+      <SafeAreaView style={{flex: 1, backgroundColor: 'white'}}>
+        <FlatList
+          data={data}
+          renderItem={this.renderItem}
+          removeClippedSubviews
+          keyExtractor={this.keyExtractor}
         />
         <Button
           title="Add row"
@@ -39,6 +48,7 @@ class MyReduxList extends Component {
               index: nextIndex,
               value: dictionary[nextIndex],
               key: nextIndex,
+              displayMode: 0,
             });
           }}
         />

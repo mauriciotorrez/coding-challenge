@@ -11,7 +11,8 @@ export default (state = initialState, action) => {
           if(item.index === action.payload.index) {
             return {
               ...item,  
-              value: action.payload.value,  
+              value: action.payload.value,
+              displayMode: action.payload.displayMode  
             }
           }
           return item;

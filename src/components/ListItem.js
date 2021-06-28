@@ -12,16 +12,21 @@ class ListItem extends Component {
     };
   }
 
+    shouldComponentUpdate(nextProps, nextState) {
+        return ((nextProps.item.value != this.props.item.value) || 
+        (nextProps.item.displayMode != this.props.item.displayMode));
+    }
+
   render() {
     console.log('Render ListItem ', this.props.item.index + 1);
-    if (this.state.displayMode === READ) {
+    if (this.props.item.displayMode === READ) {
       return (
         <View style={{flexDirection: 'row', padding: 20}}>
           <Text style={{fontSize: 18}}>{this.props.item.index + 1}</Text>
           <Text style={{fontSize: 18, marginHorizontal: 10, flex: 1}}>
             {this.props.item.value}
           </Text>
-          <Pressable onPress={() => this.setState({displayMode: EDIT})}>
+          <Pressable onPress={displayMode => this.props.onChangeText({...this.props.item, displayMode:EDIT})}>
             <Image
               source={{
                 uri:
@@ -45,7 +50,7 @@ class ListItem extends Component {
             this.props.onChangeText({...this.props.item, value})
           }
           value={this.props.item.value}
-          onSubmitEditing={() => this.setState({displayMode: READ})}
+          onSubmitEditing={displayMode => this.props.onChangeText({...this.props.item, displayMode:READ})}
         />
       );
     }
