@@ -17,17 +17,16 @@ const lorem =
 
 const dictionary = lorem.split(' ');
 
-class MyReduxList extends React.PureComponent {
+class MyReduxList extends React.Component {
 
   keyExtractor = (item) => item.index.toString();
-
-      renderItem = ({ item }) => (
-            <ListItem
-              key={item.index}
-              item={item}
-              onChangeText={item => this.props.updateItem(item)}
-            />
-          );
+  renderItem = ({ item }) => (
+        <ListItem
+          key={item.index}
+          item={item}
+          onChangeText={item => this.props.updateItem(item)}
+        />
+      );
 
   render() {
     console.log('Render MyReduxList');
